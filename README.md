@@ -6,6 +6,34 @@ This application is inspired by a [similar Python application](https://github.co
 
 In my case I was looking for a solution packaged as an all-in-one binary that avoided the hassle of installing and configuring Python and application dependencies.
 
+# Installation
+
+Download the `proof-of-life` binary from the latest [GitHub release](https://github.com/brettch/proof-of-life/releases) or build your own (see below).
+
+Copy the `proof-of-life` binary to your preferred location on the target server. As an all-in-one binary there are no other files required. No configuration file is required because all parameters are specified on the command line.
+
+To run it via systemd, create a file called `/etc/systemd/system/proof-of-life.service` with the following contents. Update paths and parameters to suit your needs.
+
+```
+[Unit]
+Description=Proof of Life Watchdog service
+
+[Service]
+Type=simple
+ExecStart=/path/to/proof-of-life --port-path /dev/ttyUSB0 --timeout 300
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
+Start the service and enable it to start on boot.
+```bash
+systemctl start proof-of-life
+systemctl enable proof-of-life
+```
+
 # Development
 
 ## Dependencies
