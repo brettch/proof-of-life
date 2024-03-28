@@ -40,7 +40,7 @@ systemctl enable proof-of-life
 
 In order to build this application, the following dependencies must be installed.
 
-* A working Rust toolchain. See [rustup](https://rustup.rs/) for details. At the time of writing the latest Rust version is 1.68.2.
+* A working Rust toolchain. See [rustup](https://rustup.rs/) for details. At the time of writing the latest Rust version is 1.77.0.
 * libudev library. On Fedora this is part of the `systemd-devel` package.
 
 ## Useful commands
